@@ -1,7 +1,7 @@
 import React from 'react'
 import { hydrate } from 'react-dom'
 import { App } from './App'
-import { FetchClient, FetchContext, memCache } from '@stefanoruth/use-fetch'
+import { FetchClient, FetchContext, memCache } from '@stefanoruth/fetch-hooks'
 import { domain } from './domain'
 
 const initialState = (window as any).__INITIAL_STATE__

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useFetch } from '@stefanoruth/use-fetch'
+import { useFetch } from '@stefanoruth/fetch-hooks'
 
 export const App: React.FunctionComponent = props => {
     const [render, setRender] = useState('server')
