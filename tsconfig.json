@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "moduleResolution": "node",
+        "jsx": "react",
+        "resolveJsonModule": true,
+        "strict": true,
+        "esModuleInterop": true,
+        "declaration": true
+    },
+    "include": ["src/**/*"]
+}

@@ -1,0 +1,53 @@
+{
+    "name": "@stefanoruth/fetch-hooks",
+    "version": "1.0.0",
+    "license": "MIT",
+    "main": "dist/client.js",
+    "types": "dist/client/index.d.ts",
+    "scripts": {
+        "test": "jest",
+        "test:coverage": "jest --coverage",
+        "clean": "rm -rf ./dist",
+        "build": "rollup -c rollup.config.ts",
+        "dev": "rollup -c rollup.config.ts --watch"
+    },
+    "peerDependencies": {
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    },
+    "dependencies": {
+        "dequal": "^2.0.2",
+        "isomorphic-fetch": "^3.0.0",
+        "query-string": "^7.0.0",
+        "tiny-lru": "^7.0.6"
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^18.0.0",
+        "@types/isomorphic-fetch": "^0.0.35",
+        "@types/jest": "^26.0.22",
+        "@types/react": "^17.0.3",
+        "@types/react-dom": "^17.0.3",
+        "jest": "^26.6.3",
+        "jest-fetch-mock": "^3.0.3",
+        "prettier": "^2.2.1",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "rollup": "^2.45.2",
+        "rollup-plugin-bundle-size": "^1.0.3",
+        "rollup-plugin-typescript2": "^0.30.0",
+        "ts-jest": "^26.5.5",
+        "typescript": "^4.2.4"
+    },
+    "prettier": {
+        "semi": false,
+        "useTabs": false,
+        "tabWidth": 4,
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "proseWrap": "always",
+        "jsxBracketSameLine": true,
+        "bracketSpacing": true,
+        "arrowParens": "avoid",
+        "printWidth": 120
+    }
+}
