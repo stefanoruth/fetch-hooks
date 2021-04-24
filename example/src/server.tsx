@@ -6,19 +6,12 @@ import { App as AppShell } from './App'
 import { FetchClient, FetchContext, memCache } from '@stefanoruth/fetch-hooks'
 import { getInitialState } from '@stefanoruth/fetch-hooks/server'
 import cors from 'cors'
-import { domain } from './domain'
 
 const app = express()
 
 app.use(
     cors({
-        origin: (origin, cb) => {
-            if (origin === undefined || [domain, 'http://localhost:3000', null].includes(origin)) {
-                return cb(null, origin)
-            } else {
-                return cb(new Error(origin))
-            }
-        },
+        origin: 'http://localhost:3000',
     })
 )
 app.use(express.static(path.join(__dirname, '../dist/public')))
