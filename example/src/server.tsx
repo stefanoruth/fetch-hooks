@@ -14,7 +14,7 @@ app.use(
         origin: 'http://localhost:3000',
     })
 )
-app.use(express.static(path.join(__dirname, '../dist/public')))
+app.use(express.static(path.join(__dirname, '../dist')))
 
 app.use('/api/error', () => {
     throw new Error('This fine little error happened.')
@@ -67,7 +67,7 @@ app.get('/', async (req, res) => {
                             )};`,
                         }}
                     />
-                    <script src="/main.js" />
+                    <script src="/client.js" />
                 </body>
             </html>
         )
