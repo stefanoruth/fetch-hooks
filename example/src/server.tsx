@@ -21,6 +21,8 @@ app.use('/api/error', () => {
 })
 
 app.use('/api/json', (req, res) => {
+    console.log('Request')
+
     return res.json({ message: `Hello World - page ${req.query.page}`, time: new Date().toISOString() })
 })
 
@@ -33,6 +35,7 @@ app.get('/', async (req, res) => {
         baseUrl: 'http://localhost:3000',
         cache: memCache(),
         ssrMode: true,
+        // logErrors: false,
         // fetchOptions: { mode: 'cors', credentials: 'include' },
     })
 

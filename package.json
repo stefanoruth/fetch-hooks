@@ -3,11 +3,16 @@
     "version": "0.1.0",
     "license": "MIT",
     "private": false,
-    "main": "dist/client/index.cjs.js",
-    "module": "dist/client/index.esm.js",
-    "types": "dist/client/client/index.d.ts",
+    "author": "Stefano Ruth <stefano6262@gmail.com>",
+    "main": "dist/client.js",
+    "types": "dist/client/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/stefanoruth/fetch-hooks.git"
+    },
     "scripts": {
         "test": "jest",
+        "clean": "rm -rf dist/",
         "test:coverage": "jest --coverage",
         "build": "rollup -c rollup.config.ts",
         "dev": "rollup -c rollup.config.ts --watch",

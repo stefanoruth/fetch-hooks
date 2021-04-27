@@ -1,5 +1,9 @@
-import commonjs from '@rollup/plugin-commonjs'
 import typescript from 'rollup-plugin-typescript2'
+import del from 'rollup-plugin-delete'
+import nodeResolve from 'rollup-plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
+import bundleSize from 'rollup-plugin-bundle-size'
+import replace from '@rollup/plugin-replace'
 
 export default [
     {
@@ -8,14 +12,26 @@ export default [
             {
                 file: 'dist/client.js',
                 format: 'iife',
-                sourceMap: 'inline',
+                sourcemap: 'inline',
+                name: 'app',
             },
         ],
-        globals: {
-            react: 'React',
-            'react-dom': 'ReactDOM',
-        },
-        plugins: [commonjs(), typescript()],
+        plugins: [
+            replace({
+                preventAssignment: true,
+                'process.env.NODE_ENV': JSON.stringify('production'),
+            }),
+            typescript(),
+            nodeResolve({
+                browser: true,
+                dedupe: ['react', 'react-dom'],
+            }),
+            commonjs({
+                include: ['node_modules/**'],
+            }),
+            bundleSize(),
+            del({ targets: ['dist/client.js'] }),
+        ],
     },
     {
         input: 'src/server.tsx',
@@ -35,6 +51,6 @@ export default [
             '@stefanoruth/fetch-hooks',
             '@stefanoruth/fetch-hooks/server',
         ],
-        plugins: [commonjs(), typescript()],
+        plugins: [typescript(), bundleSize(), del({ targets: ['dist/server.js'] })],
     },
 ]
