@@ -15,12 +15,6 @@ app.use(
     })
 )
 
-app.use((req, res, next) => {
-    console.log('Url:', req.originalUrl)
-
-    return next()
-})
-
 app.use(express.static(path.join(__dirname, '../dist')))
 
 app.use('/api/error', () => {
