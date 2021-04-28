@@ -7,7 +7,6 @@ export const App: React.FunctionComponent = props => {
 
     const { data, loading, error, refetch } = useFetch<{ message: string; time: string }>('/api/json', {
         query: { page },
-        ssr: false,
     })
 
     useEffect(() => {

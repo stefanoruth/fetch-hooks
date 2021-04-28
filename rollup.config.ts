@@ -1,4 +1,3 @@
-import commonjs from '@rollup/plugin-commonjs'
 import typescript from 'rollup-plugin-typescript2'
 import bundleSize from 'rollup-plugin-bundle-size'
 import del from 'rollup-plugin-delete'
@@ -12,8 +11,8 @@ export default [
                 format: 'cjs',
             },
         ],
-        external: ['react', 'react-dom', 'tiny-lru', 'isomorphic-fetch', 'query-string'],
-        plugins: [commonjs(), typescript(), bundleSize(), del({ targets: ['dist/client'] })],
+        external: ['react', 'react-dom', 'isomorphic-fetch', 'query-string', 'tiny-lru'],
+        plugins: [typescript(), bundleSize(), del({ targets: ['dist/client'] })],
     },
     {
         input: 'src/server/index.ts',
@@ -23,7 +22,7 @@ export default [
                 format: 'cjs',
             },
         ],
-        external: ['react', 'react-dom', 'react-dom/server', 'isomorphic-fetch'],
-        plugins: [commonjs(), typescript(), bundleSize(), del({ targets: ['dist/server'] })],
+        external: ['react-dom/server'],
+        plugins: [typescript(), bundleSize(), del({ targets: ['dist/server'] })],
     },
 ]

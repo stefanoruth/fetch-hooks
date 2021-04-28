@@ -14,6 +14,13 @@ app.use(
         origin: 'http://localhost:3000',
     })
 )
+
+app.use((req, res, next) => {
+    console.log('Url:', req.originalUrl)
+
+    return next()
+})
+
 app.use(express.static(path.join(__dirname, '../dist')))
 
 app.use('/api/error', () => {
@@ -21,8 +28,6 @@ app.use('/api/error', () => {
 })
 
 app.use('/api/json', (req, res) => {
-    console.log('Request')
-
     return res.json({ message: `Hello World - page ${req.query.page}`, time: new Date().toISOString() })
 })
 
@@ -35,8 +40,6 @@ app.get('/', async (req, res) => {
         baseUrl: 'http://localhost:3000',
         cache: memCache(),
         ssrMode: true,
-        // logErrors: false,
-        // fetchOptions: { mode: 'cors', credentials: 'include' },
     })
 
     const App = (
@@ -57,7 +60,7 @@ app.get('/', async (req, res) => {
                 <head>
                     <meta charSet="UTF-8" />
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                    <title>React Portal SSR</title>
+                    <title>Fetch Hooks</title>
                 </head>
                 <body>
                     <div id="app" dangerouslySetInnerHTML={{ __html: content }} />
