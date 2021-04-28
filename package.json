@@ -16,8 +16,7 @@
         "test:coverage": "jest --coverage",
         "build": "rollup -c rollup.config.ts",
         "dev": "rollup -c rollup.config.ts --watch",
-        "example": "concurrently --kill-others \"rollup -c rollup.config.ts --watch\" \"cd ./example && yarn dev\" \"cd ./example && yarn start\"",
-        "setup": "./bin/setup-example.sh"
+        "example": "concurrently --kill-others \"rollup -c rollup.config.ts --watch\" \"cd ./example && yarn dev\" \"cd ./example && yarn start\""
     },
     "peerDependencies": {
         "react": "^17.0.2",
