@@ -13,11 +13,11 @@
 
 ## Install
 
-`yarn add graphql-hooks`
+`yarn add @stefanoruth/fetch-hooks`
 
 or
 
-`npm install graphql-hooks`
+`npm install @stefanoruth/fetch-hooks`
 
 ## Quick Start
 
